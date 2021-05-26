@@ -16,6 +16,9 @@ app.post("/", (req, res) => {
   const lastName = req.body.lName;
   const email = req.body.email;
   console.log(firstName, lastName, email);
+  if (!firstName || !lastName || !email) {
+    res.sendFile(__dirname + "/failure.html");
+  }
 
   const data = {
     members: [
